@@ -1,0 +1,46 @@
+openapi: 3.1.0
+info:
+  title: Biogen Developer API
+  description: >-
+    The Biogen Developer API provides programmatic access to Biogen services
+    including the CCS-CRX API following REST standard specifications. The API
+    supports interactive testing, access key management, and usage reporting.
+  version: '1.0'
+servers:
+  - url: https://developer.biogen.com
+tags:
+  - name: Services
+    description: Access Biogen service endpoints.
+  - name: Authentication
+    description: Manage API keys and authentication.
+paths:
+  /api/services:
+    get:
+      operationId: listServices
+      summary: List available services
+      description: >-
+        Retrieves a list of available Biogen API services that can be accessed
+        with valid credentials.
+      tags:
+        - Services
+      responses:
+        '200':
+          description: Success
+  /api/keys:
+    get:
+      operationId: listApiKeys
+      summary: List API keys
+      description: >-
+        Retrieves API keys associated with the authenticated developer account
+        including usage statistics.
+      tags:
+        - Authentication
+      responses:
+        '200':
+          description: Success
+components:
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: header
+      name: X-API-Key
