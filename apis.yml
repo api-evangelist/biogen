@@ -1,16 +1,14 @@
 aid: biogen
-url: 
-  https://raw.githubusercontent.com/api-evangelist/biogen/refs/heads/main/apis.yml
+url: https://raw.githubusercontent.com/api-evangelist/biogen/refs/heads/main/apis.yml
 apis:
   - aid: biogen:developer-api
     name: Biogen Developer API
     tags:
       - Biotechnology
-      - Pharmaceuticals
       - Healthcare
       - Life Sciences
-    image: 
-      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+      - Pharmaceuticals
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://developer.biogen.com
     humanURL: https://developer.biogen.com/
     properties:

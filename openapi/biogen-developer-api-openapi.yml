@@ -9,8 +9,6 @@ info:
 servers:
   - url: https://developer.biogen.com
 tags:
-  - name: Services
-    description: Access Biogen service endpoints.
   - name: Authentication
     description: Manage API keys and authentication.
 paths:
@@ -21,8 +19,7 @@ paths:
       description: >-
         Retrieves a list of available Biogen API services that can be accessed
         with valid credentials.
-      tags:
-        - Services
+      tags: []
       responses:
         '200':
           description: Success
