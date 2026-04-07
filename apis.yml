@@ -1,5 +1,6 @@
 aid: biogen
-url: https://raw.githubusercontent.com/api-evangelist/biogen/refs/heads/main/apis.yml
+url: 
+  https://raw.githubusercontent.com/api-evangelist/biogen/refs/heads/main/apis.yml
 apis:
   - aid: biogen:developer-api
     name: Biogen Developer API
@@ -8,7 +9,8 @@ apis:
       - Pharmaceuticals
       - Healthcare
       - Life Sciences
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: 
+      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://developer.biogen.com
     humanURL: https://developer.biogen.com/
     properties:
@@ -24,3 +26,7 @@ apis:
       portal offers interactive I/O docs for testing API services, access key
       management, usage reporting, and detailed documentation covering supported
       methods, HTTP headers, request/response formats, and response codes.
+description: >-
+  Biogen is a global biotechnology company that discovers, develops, and delivers
+  therapies for people living with serious neurological diseases including multiple
+  sclerosis, Alzheimer's, and spinal muscular atrophy.
