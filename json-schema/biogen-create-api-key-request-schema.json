@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CreateApiKeyRequest",
+  "type": "object",
+  "description": "Request body for creating a new API key.",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Display name for the key.",
+      "example": "Production Key"
+    },
+    "description": {
+      "type": "string",
+      "description": "Optional key description.",
+      "example": "Key for production CCS-CRX integration"
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

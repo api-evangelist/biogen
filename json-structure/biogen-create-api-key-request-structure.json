@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "CreateApiKeyRequest",
+  "type": "object",
+  "description": "Request body for creating a new API key.",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Display name for the key."
+    },
+    "description": {
+      "type": "string",
+      "description": "Optional key description."
+    }
+  }
+}

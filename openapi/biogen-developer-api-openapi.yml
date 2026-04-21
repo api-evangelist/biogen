@@ -1,43 +1,277 @@
-openapi: 3.1.0
+openapi: 3.0.3
 info:
   title: Biogen Developer API
   description: >-
     The Biogen Developer API provides programmatic access to Biogen services
-    including the CCS-CRX API following REST standard specifications. The API
-    supports interactive testing, access key management, and usage reporting.
-  version: '1.0'
+    including the CCS-CRX API following REST standard specifications. The portal
+    offers interactive I/O docs for testing, access key management, usage
+    reporting, and documentation covering supported methods, HTTP headers,
+    request/response formats, and response codes.
+  version: v1
+  contact:
+    name: Biogen Developer Portal
+    url: https://developer.biogen.com/
+  license:
+    name: Proprietary
+    url: https://www.biogen.com/
+  x-generated-from: documentation
 servers:
   - url: https://developer.biogen.com
+    description: Biogen Developer API
 tags:
-  - name: Authentication
-    description: Manage API keys and authentication.
+  - name: Services
+    description: Available Biogen API services
+  - name: Keys
+    description: API key management and usage
 paths:
   /api/services:
     get:
       operationId: listServices
-      summary: List available services
+      summary: Biogen List Services
       description: >-
         Retrieves a list of available Biogen API services that can be accessed
         with valid credentials.
-      tags: []
+      tags:
+        - Services
+      security:
+        - apiKeyAuth: []
       responses:
         '200':
-          description: Success
+          description: List of available services.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServicesResponse'
+              examples:
+                ListServices200Example:
+                  summary: Default listServices 200 response
+                  x-microcks-default: true
+                  value:
+                    services:
+                      - id: ccs-crx
+                        name: CCS-CRX API
+                        description: Copaxone CRX API service
+                        status: active
+        '401':
+          description: Unauthorized.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /api/keys:
     get:
       operationId: listApiKeys
-      summary: List API keys
+      summary: Biogen List API Keys
       description: >-
         Retrieves API keys associated with the authenticated developer account
         including usage statistics.
       tags:
-        - Authentication
+        - Keys
+      security:
+        - apiKeyAuth: []
       responses:
         '200':
-          description: Success
+          description: List of API keys.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiKeysResponse'
+              examples:
+                ListApiKeys200Example:
+                  summary: Default listApiKeys 200 response
+                  x-microcks-default: true
+                  value:
+                    keys:
+                      - id: key-abc123
+                        name: Production Key
+                        key: "bde7f3..."
+                        status: active
+                        created_at: "2024-01-01T00:00:00Z"
+                        usage:
+                            requests_today: 150
+                            requests_month: 4200
+        '401':
+          description: Unauthorized.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: createApiKey
+      summary: Biogen Create API Key
+      description: Creates a new API key for the authenticated developer account.
+      tags:
+        - Keys
+      security:
+        - apiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateApiKeyRequest'
+            examples:
+              CreateApiKey201Example:
+                summary: Default createApiKey request example
+                x-microcks-default: true
+                value:
+                  name: Production Key
+                  description: Key for production CCS-CRX integration
+      responses:
+        '201':
+          description: API key created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiKey'
+              examples:
+                CreateApiKey201Example:
+                  summary: Default createApiKey 201 response
+                  x-microcks-default: true
+                  value:
+                    id: key-abc123
+                    name: Production Key
+                    key: "bde7f3..."
+                    status: active
+                    created_at: "2024-04-13T00:00:00Z"
+        '400':
+          description: Invalid request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
 components:
   securitySchemes:
-    apiKey:
+    apiKeyAuth:
       type: apiKey
       in: header
       name: X-API-Key
+      description: Biogen Developer API key passed in X-API-Key header
+  schemas:
+    ErrorResponse:
+      title: Error Response
+      description: Standard error response.
+      type: object
+      properties:
+        error:
+          type: string
+          description: Error message.
+          example: unauthorized
+        code:
+          type: integer
+          description: HTTP status code.
+          example: 401
+    Service:
+      title: Service
+      description: An available Biogen API service.
+      type: object
+      properties:
+        id:
+          type: string
+          description: Service identifier.
+          example: ccs-crx
+        name:
+          type: string
+          description: Service name.
+          example: CCS-CRX API
+        description:
+          type: string
+          description: Service description.
+          example: Copaxone CRX API service
+        status:
+          type: string
+          description: Service availability status.
+          enum:
+            - active
+            - inactive
+            - maintenance
+          example: active
+    ServicesResponse:
+      title: Services Response
+      description: List of available API services.
+      type: object
+      properties:
+        services:
+          type: array
+          description: Array of available services.
+          items:
+            $ref: '#/components/schemas/Service'
+    ApiKeyUsage:
+      title: API Key Usage
+      description: Usage statistics for an API key.
+      type: object
+      properties:
+        requests_today:
+          type: integer
+          description: Number of requests made today.
+          example: 150
+        requests_month:
+          type: integer
+          description: Number of requests made this month.
+          example: 4200
+    ApiKey:
+      title: API Key
+      description: A developer API key for accessing Biogen services.
+      type: object
+      properties:
+        id:
+          type: string
+          description: Key ID.
+          example: key-abc123
+        name:
+          type: string
+          description: Key display name.
+          example: Production Key
+        key:
+          type: string
+          description: The API key value (shown once at creation).
+          example: bde7f3...
+        status:
+          type: string
+          description: Key status.
+          enum:
+            - active
+            - inactive
+            - revoked
+          example: active
+        created_at:
+          type: string
+          format: date-time
+          description: Key creation timestamp.
+          example: "2024-01-01T00:00:00Z"
+        usage:
+          $ref: '#/components/schemas/ApiKeyUsage'
+    ApiKeysResponse:
+      title: API Keys Response
+      description: List of API keys for the developer account.
+      type: object
+      properties:
+        keys:
+          type: array
+          description: Array of API keys.
+          items:
+            $ref: '#/components/schemas/ApiKey'
+    CreateApiKeyRequest:
+      title: Create API Key Request
+      description: Request body for creating a new API key.
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+          description: Display name for the key.
+          example: Production Key
+        description:
+          type: string
+          description: Optional key description.
+          example: Key for production CCS-CRX integration

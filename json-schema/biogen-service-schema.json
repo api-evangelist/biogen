@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Service",
+  "type": "object",
+  "description": "An available Biogen API service.",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Service identifier.",
+      "example": "ccs-crx"
+    },
+    "name": {
+      "type": "string",
+      "description": "Service name.",
+      "example": "CCS-CRX API"
+    },
+    "description": {
+      "type": "string",
+      "description": "Service description.",
+      "example": "Copaxone CRX API service"
+    },
+    "status": {
+      "type": "string",
+      "description": "Service availability status.",
+      "enum": [
+        "active",
+        "inactive",
+        "maintenance"
+      ],
+      "example": "active"
+    }
+  }
+}

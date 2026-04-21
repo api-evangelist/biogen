@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ServicesResponse",
+  "type": "object",
+  "description": "List of available API services.",
+  "properties": {
+    "services": {
+      "type": "array",
+      "description": "Array of available services.",
+      "items": {
+        "$ref": "#/components/schemas/Service"
+      }
+    }
+  }
+}

@@ -1,0 +1,76 @@
+vocabulary: "1.0.0"
+
+info:
+  provider: Biogen
+  description: >-
+    Domain vocabulary for the Biogen Developer API, covering pharmaceutical
+    service access, API key management, and developer portal capabilities.
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+operational:
+  apis:
+    - namespace: biogen-developer-api-v1
+      version: v1
+      baseUrl: https://developer.biogen.com
+      status: active
+      description: Biogen Developer API
+
+  resources:
+    - name: services
+      api: biogen-developer-api-v1
+      actions: [list]
+      description: Available Biogen API services
+    - name: api-keys
+      api: biogen-developer-api-v1
+      actions: [list, create]
+      description: Developer API keys and usage stats
+
+  actions:
+    - name: list
+      httpMethod: GET
+      pattern: read
+    - name: create
+      httpMethod: POST
+      pattern: write
+
+  schemas:
+    core:
+      - name: Service
+        keyProperties: [id, name, status]
+      - name: ApiKey
+        keyProperties: [id, name, key, status, created_at]
+      - name: ApiKeyUsage
+        keyProperties: [requests_today, requests_month]
+
+  authentication:
+    schemes:
+      - type: apiKey
+        header: X-API-Key
+        description: API key passed in X-API-Key header
+
+capability:
+  workflows:
+    - id: api-access-management
+      name: API Access Management
+      description: Discover and manage access to Biogen pharmaceutical APIs
+      tools: [list-services, list-api-keys, create-api-key]
+
+  personas:
+    - id: developer
+      name: Developer
+      description: Developer integrating with Biogen pharmaceutical services APIs
+      workflows: [api-access-management]
+
+  domains:
+    - name: API Management
+      description: API key lifecycle and access management
+    - name: Service Discovery
+      description: Discovery of available Biogen API services
+
+crossReference:
+  resources:
+    - operational: services
+      capability: list-services
+    - operational: api-keys
+      capability: list-api-keys

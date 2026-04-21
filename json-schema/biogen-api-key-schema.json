@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ApiKey",
+  "type": "object",
+  "description": "A developer API key for accessing Biogen services.",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Key ID.",
+      "example": "key-abc123"
+    },
+    "name": {
+      "type": "string",
+      "description": "Key display name.",
+      "example": "Production Key"
+    },
+    "key": {
+      "type": "string",
+      "description": "The API key value (shown once at creation).",
+      "example": "bde7f3..."
+    },
+    "status": {
+      "type": "string",
+      "description": "Key status.",
+      "enum": [
+        "active",
+        "inactive",
+        "revoked"
+      ],
+      "example": "active"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Key creation timestamp.",
+      "example": "2024-01-01T00:00:00Z"
+    },
+    "usage": {
+      "$ref": "#/components/schemas/ApiKeyUsage"
+    }
+  }
+}

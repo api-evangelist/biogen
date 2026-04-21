@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "Service",
+  "type": "object",
+  "description": "An available Biogen API service.",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Service identifier."
+    },
+    "name": {
+      "type": "string",
+      "description": "Service name."
+    },
+    "description": {
+      "type": "string",
+      "description": "Service description."
+    },
+    "status": {
+      "type": "string",
+      "description": "Service availability status."
+    }
+  }
+}

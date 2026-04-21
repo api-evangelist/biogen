@@ -1,0 +1,41 @@
+name: API Access Management
+description: >-
+  Workflow capability for managing access to Biogen APIs including service
+  discovery and API key lifecycle management.
+version: v1
+
+imports:
+  - shared/biogen.yaml
+
+tools:
+  - name: list-services
+    import: biogen.list-services
+    description: List all Biogen API services available with your credentials.
+  - name: list-api-keys
+    import: biogen.list-api-keys
+    description: List all API keys for the authenticated developer account with usage statistics.
+  - name: create-api-key
+    import: biogen.create-api-key
+    description: Create a new API key for accessing Biogen services.
+    inputSchema:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+          description: Display name for the API key
+        description:
+          type: string
+          description: Optional description for the key
+
+expose:
+  rest:
+    port: 8080
+  mcp:
+    port: 9080
+
+personas:
+  - id: developer
+    name: Developer
+    description: Developer integrating with Biogen pharmaceutical services APIs

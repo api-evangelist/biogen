@@ -1,0 +1,6 @@
+{
+  "id": "ccs-crx",
+  "name": "CCS-CRX API",
+  "description": "Copaxone CRX API service",
+  "status": "active"
+}

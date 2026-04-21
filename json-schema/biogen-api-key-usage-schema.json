@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ApiKeyUsage",
+  "type": "object",
+  "description": "Usage statistics for an API key.",
+  "properties": {
+    "requests_today": {
+      "type": "integer",
+      "description": "Number of requests made today.",
+      "example": 150
+    },
+    "requests_month": {
+      "type": "integer",
+      "description": "Number of requests made this month.",
+      "example": 4200
+    }
+  }
+}

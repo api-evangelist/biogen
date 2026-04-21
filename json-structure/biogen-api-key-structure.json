@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "ApiKey",
+  "type": "object",
+  "description": "A developer API key for accessing Biogen services.",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Key ID."
+    },
+    "name": {
+      "type": "string",
+      "description": "Key display name."
+    },
+    "key": {
+      "type": "string",
+      "description": "The API key value (shown once at creation)."
+    },
+    "status": {
+      "type": "string",
+      "description": "Key status."
+    },
+    "created_at": {
+      "type": "datetime",
+      "description": "Key creation timestamp."
+    },
+    "usage": {
+      "type": "object"
+    }
+  }
+}

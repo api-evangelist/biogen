@@ -1,0 +1,33 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "bg": "https://developer.biogen.com/vocab#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "id": "schema:identifier",
+    "name": "schema:name",
+    "description": "schema:description",
+    "status": "schema:status",
+    "services": {
+      "@id": "bg:services",
+      "@type": "xsd:string"
+    },
+    "requests_today": {
+      "@id": "bg:requests_today",
+      "@type": "xsd:integer"
+    },
+    "requests_month": {
+      "@id": "bg:requests_month",
+      "@type": "xsd:integer"
+    },
+    "key": {
+      "@id": "bg:key",
+      "@type": "xsd:string"
+    },
+    "created_at": "schema:dateCreated",
+    "keys": {
+      "@id": "bg:keys",
+      "@type": "xsd:string"
+    }
+  }
+}

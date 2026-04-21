@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "ApiKeysResponse",
+  "type": "object",
+  "description": "List of API keys for the developer account.",
+  "properties": {
+    "keys": {
+      "type": "array",
+      "description": "Array of API keys."
+    }
+  }
+}

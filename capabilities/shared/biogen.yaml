@@ -1,0 +1,38 @@
+name: Biogen Developer API
+description: Shared capability definitions for the Biogen Developer API
+version: v1
+baseUrl: https://developer.biogen.com
+
+authentication:
+  type: apiKey
+  header: X-API-Key
+  value: "{{BIOGEN_API_KEY}}"
+
+operations:
+  - operationId: listServices
+    name: list-services
+    summary: List available Biogen API services
+    method: GET
+    path: /api/services
+    tags:
+      - Services
+  - operationId: listApiKeys
+    name: list-api-keys
+    summary: List API keys for the developer account
+    method: GET
+    path: /api/keys
+    tags:
+      - Keys
+  - operationId: createApiKey
+    name: create-api-key
+    summary: Create a new API key
+    method: POST
+    path: /api/keys
+    tags:
+      - Keys
+
+expose:
+  rest:
+    port: 8100
+  mcp:
+    port: 9100

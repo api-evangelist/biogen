@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "ServicesResponse",
+  "type": "object",
+  "description": "List of available API services.",
+  "properties": {
+    "services": {
+      "type": "array",
+      "description": "Array of available services."
+    }
+  }
+}
