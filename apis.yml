@@ -46,6 +46,8 @@ maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 common:
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/biogen-
 - type: Portal
   url: https://developer.biogen.com/
 - type: Website
