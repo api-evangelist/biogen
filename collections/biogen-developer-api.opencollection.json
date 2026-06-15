@@ -1,0 +1,81 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Biogen Developer API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Services",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Biogen List Services",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.biogen.com/api/services",
+            "auth": {
+              "type": "apikey",
+              "key": "X-API-Key",
+              "value": "{{X-API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Retrieves a list of available Biogen API services that can be accessed with valid credentials."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Keys",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Biogen List API Keys",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://developer.biogen.com/api/keys",
+            "auth": {
+              "type": "apikey",
+              "key": "X-API-Key",
+              "value": "{{X-API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Retrieves API keys associated with the authenticated developer account including usage statistics."
+        },
+        {
+          "info": {
+            "name": "Biogen Create API Key",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://developer.biogen.com/api/keys",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "X-API-Key",
+              "value": "{{X-API-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Creates a new API key for the authenticated developer account."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
