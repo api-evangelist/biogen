@@ -1,0 +1,16 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/biogen-developer-api-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: apiKeyAuth
+  type: apiKey
+  in: header
+  parameter: X-API-Key
+  description: Biogen Developer API key passed in X-API-Key header
+  sources:
+  - openapi/biogen-developer-api-openapi.yml

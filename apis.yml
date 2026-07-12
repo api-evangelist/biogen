@@ -46,6 +46,10 @@ maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
 common:
+  - type: DomainSecurity
+    url: security/biogen-domain-security.yml
+  - type: Authentication
+    url: authentication/biogen-authentication.yml
   - type: GitHubOrganization
     url: https://github.com/Biogen-Inc
   - type: LinkedIn
