@@ -46,6 +46,8 @@ maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
 common:
+  - type: AgenticAccess
+    url: agentic-access/biogen-agentic-access.yml
   - type: DomainSecurity
     url: security/biogen-domain-security.yml
   - type: Authentication
