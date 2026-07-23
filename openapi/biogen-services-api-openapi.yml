@@ -1,0 +1,110 @@
+openapi: 3.0.3
+info:
+  title: Biogen Developer Keys Services API
+  description: The Biogen Developer API provides programmatic access to Biogen services including the CCS-CRX API following REST standard specifications. The portal offers interactive I/O docs for testing, access key management, usage reporting, and documentation covering supported methods, HTTP headers, request/response formats, and response codes.
+  version: v1
+  contact:
+    name: Biogen Developer Portal
+    url: https://developer.biogen.com/
+  license:
+    name: Proprietary
+    url: https://www.biogen.com/
+  x-generated-from: documentation
+servers:
+- url: https://developer.biogen.com
+  description: Biogen Developer API
+tags:
+- name: Services
+  description: Available Biogen API services
+paths:
+  /api/services:
+    get:
+      operationId: listServices
+      summary: Biogen List Services
+      description: Retrieves a list of available Biogen API services that can be accessed with valid credentials.
+      tags:
+      - Services
+      security:
+      - apiKeyAuth: []
+      responses:
+        '200':
+          description: List of available services.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServicesResponse'
+              examples:
+                ListServices200Example:
+                  summary: Default listServices 200 response
+                  x-microcks-default: true
+                  value:
+                    services:
+                    - id: ccs-crx
+                      name: CCS-CRX API
+                      description: Copaxone CRX API service
+                      status: active
+        '401':
+          description: Unauthorized.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    Service:
+      title: Service
+      description: An available Biogen API service.
+      type: object
+      properties:
+        id:
+          type: string
+          description: Service identifier.
+          example: ccs-crx
+        name:
+          type: string
+          description: Service name.
+          example: CCS-CRX API
+        description:
+          type: string
+          description: Service description.
+          example: Copaxone CRX API service
+        status:
+          type: string
+          description: Service availability status.
+          enum:
+          - active
+          - inactive
+          - maintenance
+          example: active
+    ErrorResponse:
+      title: Error Response
+      description: Standard error response.
+      type: object
+      properties:
+        error:
+          type: string
+          description: Error message.
+          example: unauthorized
+        code:
+          type: integer
+          description: HTTP status code.
+          example: 401
+    ServicesResponse:
+      title: Services Response
+      description: List of available API services.
+      type: object
+      properties:
+        services:
+          type: array
+          description: Array of available services.
+          items:
+            $ref: '#/components/schemas/Service'
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+      description: Biogen Developer API key passed in X-API-Key header
