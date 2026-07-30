@@ -1,37 +1,55 @@
 aid: biogen
 url: https://raw.githubusercontent.com/api-evangelist/biogen/refs/heads/main/apis.yml
 apis:
-  - aid: biogen:developer-api
-    name: Biogen Developer API
-    tags:
-      - Biotechnology
-      - Healthcare
-      - Life Sciences
-      - Pharmaceuticals
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    baseURL: https://developer.biogen.com
-    humanURL: https://developer.biogen.com/
-    properties:
-      - type: Portal
-        url: https://developer.biogen.com/
-      - type: Documentation
-        url: https://developer.biogen.com/io-docs
-      - type: OpenAPI
-        url: >-
-          https://raw.githubusercontent.com/api-evangelist/biogen/refs/heads/main/openapi/biogen-developer-api-openapi.yml
-    description: >-
-      The Biogen Developer API provides programmatic access to Biogen services including the CCS-CRX API following REST
-      standard specifications. The portal offers interactive I/O docs for testing API services, access key management,
-      usage reporting, and detailed documentation covering supported methods, HTTP headers, request/response formats,
-      and response codes.
+- aid: biogen:biogen-keys-api
+  name: Biogen Keys API
+  description: API key management and usage
+  humanURL: https://developer.biogen.com/
+  baseURL: https://developer.biogen.com
+  tags:
+  - Keys
+  properties:
+  - type: OpenAPI
+    url: openapi/biogen-keys-api-openapi.yml
+  - type: Portal
+    url: https://developer.biogen.com/
+  - type: Documentation
+    url: https://developer.biogen.com/io-docs
+- aid: biogen:biogen-services-api
+  name: Biogen Services API
+  description: Available Biogen API services
+  humanURL: https://developer.biogen.com/
+  baseURL: https://developer.biogen.com
+  tags:
+  - Services
+  properties:
+  - type: OpenAPI
+    url: openapi/biogen-services-api-openapi.yml
+  - type: Portal
+    url: https://developer.biogen.com/
+  - type: Documentation
+    url: https://developer.biogen.com/io-docs
 description: >-
   Biogen is a global biotechnology company that discovers, develops, and delivers therapies for people living with
   serious neurological diseases including multiple sclerosis, Alzheimer's, and spinal muscular atrophy.
 name: Biogen
 kind: contract
 access: 3rd-Party
+accessModel:
+  pricing: enterprise
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Enterprise · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 position: Consuming
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/biogen.png
 tags:
   - Biotechnology
   - Healthcare
