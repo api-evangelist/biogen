@@ -1,0 +1,16 @@
+{
+  "provider": "biogen",
+  "sources": [
+    "biogen-keys-api-openapi.yml",
+    "biogen-services-api-openapi.yml"
+  ],
+  "outputs": [
+    "biogen-keys-api-openapi.yml",
+    "biogen-services-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
