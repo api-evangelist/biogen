@@ -1,0 +1,172 @@
+{
+  "item": [
+    {
+      "id": "9e55ce9b-787b-4a57-9e28-6af07b303dd0",
+      "name": "Services",
+      "description": {
+        "content": "Available Biogen API services",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "75501f36-15a4-41a8-b271-fa6454aa4fe1",
+          "name": "Biogen List Services",
+          "request": {
+            "name": "Biogen List Services",
+            "description": {
+              "content": "Retrieves a list of available Biogen API services that can be accessed with valid credentials.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "services"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-API-Key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "9330c609-b716-4b9f-8eb5-3e01eabf90e0",
+              "name": "List of available services.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "services"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"services\": [\n    {\n      \"id\": \"ccs-crx\",\n      \"name\": \"CCS-CRX API\",\n      \"description\": \"Copaxone CRX API service\",\n      \"status\": \"active\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b24d469a-c8aa-4b10-8261-7892f3765ef7",
+              "name": "Unauthorized.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "services"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"unauthorized\",\n  \"code\": 401\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://developer.biogen.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "49864b3b-151b-43e3-81d5-d861c553e157",
+    "name": "Biogen Developer Keys Services API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Biogen Developer API provides programmatic access to Biogen services including the CCS-CRX API following REST standard specifications. The portal offers interactive I/O docs for testing, access key management, usage reporting, and documentation covering supported methods, HTTP headers, request/response formats, and response codes.\n\nContact Support:\n Name: Biogen Developer Portal",
+      "type": "text/plain"
+    }
+  }
+}
