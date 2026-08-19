@@ -59,7 +59,7 @@ tags:
   - Fortune 500
 created: '2025-01-01'
 modified: '2026-04-21'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
