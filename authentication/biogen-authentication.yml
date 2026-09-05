@@ -1,16 +1,61 @@
-generated: '2026-07-11'
-method: derived
-source: openapi/biogen-developer-api-openapi.yml
+generated: '2026-09-04'
+method: searched
+source: >-
+  https://developer1.biogen.com/swagger/export/23683 (the provider's own API definition, which
+  declares the auth scheme), https://developer1.biogen.com/io-docs and
+  https://developer.biogen.com/io-docs.
+docs: https://developer.biogen.com/io-docs
 summary:
   types:
-  - apiKey
+    - apiKey
   api_key_in:
-  - header
+    - header
+  oauth2: false
+  mtls: false
 schemes:
-- name: apiKeyAuth
-  type: apiKey
-  in: header
-  parameter: X-API-Key
-  description: Biogen Developer API key passed in X-API-Key header
-  sources:
-  - openapi/biogen-developer-api-openapi.yml
+  - name: apiKeyAuth
+    type: apiKey
+    in: header
+    parameter: x-api-key
+    description: >-
+      API key issued through the Biogen developer portal, sent on every request. Declared by Biogen's
+      own published definition as auth.key { param: "x-api-key", location: "header" }.
+    sources:
+      - https://developer1.biogen.com/swagger/export/23683
+      - openapi/_original/biogen-cdp-export-api-iodoc.json
+      - openapi/biogen-cdp-export-api-openapi.yml
+  - name: apiKeyAuth
+    type: apiKey
+    in: header
+    parameter: X-API-Key
+    description: >-
+      Portal-management key form documented for the developer portal's own key and service
+      endpoints. Note the case difference from the gateway's x-api-key — this scheme comes from
+      AE-authored specs transcribed from portal documentation, not from a Biogen-published contract.
+    sources:
+      - openapi/biogen-keys-api-openapi.yml
+      - openapi/biogen-services-api-openapi.yml
+issuance:
+  self_service: false
+  flow: >-
+    Keys are requested through the portal's "Request Access Key" / Manage Keys screens, which require
+    a portal account. Registration is not open: the portal's Register link carries an empty href and
+    the portal stylesheet hides the register control, with sign-in handled by external SSO
+    (https://developer.biogen.com/login/external). Access is therefore employee/partner-issued.
+oauth2:
+  declared: false
+  note: >-
+    The Mashery/Boomi io-docs page renders an OAuth 2.0 flow selector (authorization code, client
+    credentials, password, implicit) for every portal it hosts. That is platform chrome, not a Biogen
+    claim — the one Biogen API definition readable anonymously declares data-auth-type="key". No
+    OAuth2 scheme is asserted here and no scopes/ artifact is written.
+transport:
+  https_only: true
+  evidence: >-
+    Biogen portal reference: the API "strictly uses HTTPS in the transport layer". TLS confirmed live
+    on every host (security/biogen-domain-security.yml).
+discovery:
+  openid_configuration: false
+  oauth_authorization_server: false
+  protected_resource_metadata: false
+  evidence: well-known/biogen-well-known.yml — all five named paths missed on all six hosts.

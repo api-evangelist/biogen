@@ -1,0 +1,92 @@
+generated: '2026-09-04'
+method: searched
+source: >-
+  GitHub org https://github.com/Biogen-Inc (public repo listing via api.github.com), CRAN package
+  metadata via https://crandb.r-pkg.org/<pkg>, plus negative searches of npm, PyPI, Maven Central,
+  NuGet, RubyGems, pkg.go.dev, Packagist and crates.io.
+note: >-
+  IMPORTANT — THESE ARE NOT API CLIENT SDKs. Biogen publishes first-party open-source R and Python
+  packages for clinical-data analysis, but ships NO client library for any Biogen API. The Biogen
+  Developer Portal (developer.biogen.com) offers interactive docs and key management only; no SDK is
+  distributed from it, and no first-party Biogen package on npm, PyPI, Maven Central, NuGet,
+  RubyGems, Go, Packagist or crates.io wraps a Biogen API. Because of that, this artifact carries the
+  `Packages` pointer only — no `SDKs` pointer is emitted, since sdk_count asks whether the provider
+  ships client libraries for its API, and Biogen does not. The npm package named `biogen` is an
+  unrelated third-party lexer generator, not Biogen, Inc.
+official_sdk_count: 0
+package_count: 4
+packages:
+  - name: tidyCDISC
+    registry: cran
+    official: true
+    language: R
+    url: https://cran.r-project.org/package=tidyCDISC
+    repository: https://github.com/Biogen-Inc/tidyCDISC
+    version: 0.2.2
+    published: '2026-02-05'
+    license: AGPL-3.0
+    api_client: false
+    description: >-
+      Shiny application for quick table generation and exploratory analyses on ADaM-ish (CDISC)
+      clinical trial datasets. Published to CRAN by Biogen, Inc.
+    source: https://crandb.r-pkg.org/tidyCDISC
+  - name: IDEAFilter
+    registry: cran
+    official: true
+    language: R
+    url: https://cran.r-project.org/package=IDEAFilter
+    repository: https://github.com/Biogen-Inc/IDEAFilter
+    version: 0.2.1
+    published: '2025-07-29'
+    api_client: false
+    description: >-
+      Agnostic, idiomatic data filter module for Shiny. Published to CRAN by Biogen, Inc.
+    source: https://crandb.r-pkg.org/IDEAFilter
+  - name: EditExpress
+    registry: none
+    official: true
+    language: Python
+    url: https://github.com/Biogen-Inc/EditExpress
+    repository: https://github.com/Biogen-Inc/EditExpress
+    version: null
+    published: null
+    api_client: false
+    description: >-
+      Python tool published in the Biogen-Inc GitHub org. Source-only distribution — checked, and it
+      is absent from PyPI (https://pypi.org/pypi/EditExpress/json returned 404), so there is no
+      registry metadata endpoint to read a version or release date from. Last repository push
+      2018-06-28.
+    note: version null because the package is distributed as source only, not through any registry.
+  - name: statgen
+    registry: none
+    official: true
+    language: unknown
+    url: https://github.com/Biogen-Inc/statgen
+    repository: https://github.com/Biogen-Inc/statgen
+    version: null
+    published: null
+    api_client: false
+    description: >-
+      Statistical genetics repository in the Biogen-Inc GitHub org. Source-only distribution, no
+      registry publication found, so no version or release date exists to record. Last repository
+      push 2020-11-09.
+    note: version null because the package is distributed as source only, not through any registry.
+registries_checked:
+  - registry: npm
+    result: no first-party Biogen package (the `biogen` npm package is an unrelated lexer generator)
+  - registry: pypi
+    result: EditExpress absent (404); no first-party Biogen package found
+  - registry: cran
+    result: 2 first-party packages (tidyCDISC, IDEAFilter)
+  - registry: maven-central
+    result: none found
+  - registry: nuget
+    result: none found
+  - registry: rubygems
+    result: none found
+  - registry: go
+    result: none found
+  - registry: packagist
+    result: none found
+  - registry: crates.io
+    result: none found

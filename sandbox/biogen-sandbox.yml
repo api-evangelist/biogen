@@ -1,0 +1,48 @@
+generated: '2026-09-04'
+method: searched
+source: https://developer1.biogen.com/io-docs
+summary: >-
+  Biogen operates a separate NON-PRODUCTION developer portal — the "Biogen Non-Prod Developer
+  Portal" at developer1.biogen.com — alongside its production portal at developer.biogen.com. The
+  non-production portal's Interactive Documentation page is readable anonymously and serves a real,
+  machine-readable API definition (harvested to openapi/_original/biogen-cdp-export-api-iodoc.json);
+  the production portal's equivalent page lists no APIs to an anonymous visitor. The non-production
+  gateway is a distinct host, dev1.api.biogen.com, so test traffic is separated by ENVIRONMENT AND
+  HOST rather than by a test-vs-live key prefix.
+environments:
+  - name: Non-production
+    portal: https://developer1.biogen.com/
+    interactive_docs: https://developer1.biogen.com/io-docs
+    api_host: https://dev1.api.biogen.com
+    anonymous_readable: true
+    note: >-
+      The io-docs page renders without sign-in and exposes the CDP-Export-API/Package definition
+      (apiId 23683, auth type "key"). Calling the gateway still requires a key: an anonymous GET to
+      https://dev1.api.biogen.com/serviceexp/np returned HTTP 403 on 2026-09-04.
+  - name: Production
+    portal: https://developer.biogen.com/
+    interactive_docs: https://developer.biogen.com/io-docs
+    api_host: https://api.biogen.com
+    anonymous_readable: false
+    note: >-
+      The production io-docs page renders but its API selector is empty to an anonymous visitor, and
+      every documentation page answers HTTP 403 with "You don't have permission to read <page>.
+      Please Sign In or Register."
+credentials:
+  model: api-key
+  parameter: x-api-key
+  location: header
+  issuance: >-
+    Keys are requested through the portal ("Request Access Key" / Manage Keys), which requires a
+    portal account. The portal's Register link is disabled (empty href, and the portal stylesheet
+    hides the register control) — sign-in is external SSO, so key issuance is not self-service.
+  test_key_prefix: null
+  note: >-
+    Biogen publishes NO test cards, magic identifiers, fixture values, seeded test accounts or time
+    simulation. Nothing of that kind was found and nothing has been invented here — the separation is
+    environment-level only.
+test_data:
+  published: false
+  values: []
+time_simulation:
+  published: false

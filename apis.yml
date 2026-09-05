@@ -29,6 +29,28 @@ apis:
     url: https://developer.biogen.com/
   - type: Documentation
     url: https://developer.biogen.com/io-docs
+- aid: biogen:biogen-cdp-export-api
+  name: Biogen CDP Export API (Non-Production)
+  description: >-
+    Service and package export lookups on Biogen's non-production API gateway. This is the only
+    Biogen API whose machine-readable definition is published anonymously — Biogen serves it as a
+    Mashery/Boomi IODoc JSON from its Non-Prod Developer Portal.
+  humanURL: https://developer1.biogen.com/io-docs
+  baseURL: https://dev1.api.biogen.com
+  tags:
+  - Export
+  - Non-Production
+  properties:
+  - type: OpenAPI
+    url: openapi/biogen-cdp-export-api-openapi.yml
+  - type: Overlay
+    url: overlays/biogen-cdp-export-api-overlay.yaml
+  - type: Portal
+    url: https://developer1.biogen.com/
+  - type: Documentation
+    url: https://developer1.biogen.com/io-docs
+  - type: AgentSkill
+    url: skills/biogen-export-lookup.md
 description: >-
   Biogen is a global biotechnology company that discovers, develops, and delivers therapies for people living with
   serious neurological diseases including multiple sclerosis, Alzheimer's, and spinal muscular atrophy.
@@ -70,7 +92,7 @@ tags:
   - Neurology
   - Fortune 500
 created: '2025-01-01'
-modified: '2026-04-21'
+modified: '2026-09-04'
 specificationVersion: '0.23'
 maintainers:
   - FN: Kin Lane
@@ -122,3 +144,40 @@ common:
         description: Connect EHR and healthcare IT systems to Biogen pharmaceutical APIs.
       - name: Patient Support Programs
         description: Integrate with Biogen patient support and copay assistance programs.
+  - type: LLMsTxt
+    url: llms/biogen-llms.txt
+  - type: Packages
+    url: packages/biogen-packages.yml
+  - type: Conventions
+    url: conventions/biogen-conventions.yml
+  - type: ErrorCatalog
+    url: errors/biogen-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/biogen-lifecycle.yml
+  - type: Conformance
+    url: conformance/biogen-conformance.yml
+  - type: DataModel
+    url: data-model/biogen-data-model.yml
+  - type: Sandbox
+    url: sandbox/biogen-sandbox.yml
+  - type: AgentSkill
+    url: skills/_index.yml
+  - type: X-MCPServerCandidate
+    url: mcp/biogen-mcp.yml
+  - type: RateLimits
+    url: rate-limits/biogen-rate-limits.yml
+  - type: Plans
+    url: plans/biogen-plans-pricing.yml
+  - type: TermsOfService
+    url: https://www.biogen.com/terms-and-conditions.html
+  - type: PrivacyPolicy
+    url: https://www.biogen.com/privacy-center.html
+  - type: Support
+    url: https://www.biogen.com/company/contact-us.html
+  - type: Blog
+    url: https://www.biogen.com/stories.html
+x-enrichment:
+  date: '2026-09-04'
+  status: enriched
+  artifacts_added: 15
+  pass: local-v3

@@ -1,0 +1,18 @@
+generated: '2026-09-04'
+method: generated
+source: openapi/biogen-cdp-export-api-openapi.yml
+note: >-
+  One skill only. Agent Skills are grounded in real operationIds, and Biogen publishes exactly one
+  anonymously readable contract with exactly two operations. The portal's other documented APIs
+  (Worker Profile, Synapse Action Centre) sit behind an HTTP 403 login, so no skill has been written
+  for them — writing one would mean inventing operations.
+skills:
+  - name: biogen-export-lookup
+    file: biogen-export-lookup.md
+    api: biogen:biogen-cdp-export-api
+    operations:
+      - getServiceExportNonProd
+      - getPackageExportNonProd
+    description: >-
+      Look up a Biogen API service or package export record on the non-production gateway with a
+      portal-issued x-api-key.

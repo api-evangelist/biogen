@@ -1,0 +1,52 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements — Biogen CDP Export API
+  version: 1.0.0
+extends: ../openapi/biogen-cdp-export-api-openapi.yml
+x-generated: '2026-09-04'
+x-method: generated
+x-source: >-
+  Records the enhancements API Evangelist added when transcribing the provider's Mashery IODoc
+  definition (https://developer1.biogen.com/swagger/export/23683, archived verbatim at
+  openapi/_original/biogen-cdp-export-api-iodoc.json) into OpenAPI 3.1.0. The provider document
+  carries EMPTY description strings on the API and on both methods, declares no tags, no
+  operationIds, no responses and no info block; everything in actions[] below is ours, not Biogen's.
+  Applying this overlay to a fresh transcription reproduces the enhanced document.
+actions:
+  - target: $.info
+    description: Add the title, description, contact and licence the provider definition omits.
+    update:
+      title: Biogen CDP Export API (Non-Production)
+      contact:
+        name: Biogen Developer Portal
+        url: https://developer1.biogen.com/io-docs
+  - target: $.tags
+    description: Add an Export tag; the provider definition declares no tags.
+    update:
+      - name: Export
+        description: Service and package export lookups across the Biogen non-production API estate
+  - target: $.paths['/serviceexp/np'].get
+    description: >-
+      Add operationId, summary, description and the Export tag. The provider names this method
+      Service_EXP_np and leaves its description empty.
+    update:
+      operationId: getServiceExportNonProd
+      summary: Export non-production API service
+      tags:
+        - Export
+  - target: $.paths['/packageexp/np'].get
+    description: >-
+      Add operationId, summary, description and the Export tag. The provider names this method
+      Package_EXP_np and leaves its description empty.
+    update:
+      operationId: getPackageExportNonProd
+      summary: Export non-production API package
+      tags:
+        - Export
+  - target: $.paths['/serviceexp/np'].get.responses
+    description: >-
+      Add the 403 observed live on an anonymous call. The provider definition declares no responses
+      at all; no status code has been added that was not either observed or returned by the gateway.
+    update:
+      '403':
+        description: Gateway response to a request with no valid x-api-key (observed 2026-09-04).

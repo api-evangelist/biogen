@@ -6,8 +6,16 @@ providerId: biogen
 created: '2026-05-04'
 # Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
 # bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
-method: generated
-modified: '2026-05-05'
+method: searched
+modified: '2026-09-04'
+plan_count: 0
+reconciliation: >-
+  Re-searched 2026-09-04. Biogen publishes NO developer pricing page and no machine-readable plan or
+  catalogue endpoint. The developer portal itself (https://developer.biogen.com/, HTTP 403 behind a
+  sign-in wall) sells nothing, and www.biogen.com carries no API pricing page — its own llms.txt
+  (https://www.biogen.com/llms.txt, HTTP 200) indexes the whole site and names no developer or
+  pricing surface. plan_count is 0: the single entry below describes a contact-sales posture, not a
+  published plan.
 reconciled: false
 tags:
   - Biotechnology
@@ -21,6 +29,8 @@ description: Biogen is a biopharmaceutical manufacturer and does not publish a d
   placeholder until a published Biogen developer offering is identified.
 sources:
   - https://www.biogen.com
+  - https://www.biogen.com/llms.txt
+  - https://developer.biogen.com/
 notes: No public API pricing page identified at biogen.com or biogen.us; all commercial terms appear
   to be partner-contract negotiated. Reconcile when a developer portal is launched.
 plans:

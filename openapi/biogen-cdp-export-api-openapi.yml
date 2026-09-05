@@ -1,0 +1,94 @@
+openapi: 3.1.0
+info:
+  title: Biogen CDP Export API (Non-Production)
+  description: >-
+    Machine-readable contract for the Biogen CDP-Export-API/Package service, published by Biogen on
+    its Non-Production Developer Portal (developer1.biogen.com) as a Mashery/Boomi interactive-docs
+    definition. Two read operations expose Biogen's internal API and package catalogue for the
+    non-production estate: a service export lookup and a package export lookup. Requests are
+    authenticated with an API key supplied in the x-api-key request header and issued through the
+    Biogen developer portal. This describes the NON-PRODUCTION environment (dev1.api.biogen.com);
+    Biogen's production gateway is api.biogen.com and its contract is not published anonymously.
+  version: '1'
+  contact:
+    name: Biogen Developer Portal
+    url: https://developer1.biogen.com/io-docs
+  license:
+    name: Proprietary
+    url: https://www.biogen.com/terms-and-conditions.html
+  x-derived-from: >-
+    https://developer1.biogen.com/swagger/export/23683 — the provider-published Mashery IODoc JSON
+    definition, fetched 2026-09-04 (HTTP 200, application/json), archived verbatim at
+    openapi/_original/biogen-cdp-export-api-iodoc.json. Every path, method, parameter, server and
+    security scheme below is transcribed from that document; nothing was added.
+  x-method: derived
+servers:
+  - url: https://dev1.api.biogen.com
+    description: Biogen non-production API gateway (basePath declared by the provider definition)
+tags:
+  - name: Export
+    description: Service and package export lookups across the Biogen non-production API estate
+paths:
+  /serviceexp/np:
+    get:
+      operationId: getServiceExportNonProd
+      summary: Export non-production API service
+      description: >-
+        Service_EXP_np — returns the non-production export record for a Biogen API service. The
+        Api_Name query parameter narrows the export to a named API; the provider definition marks it
+        optional with an empty default.
+      tags:
+        - Export
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - name: Api_Name
+          in: query
+          required: false
+          description: Name of API
+          schema:
+            type: string
+            default: ''
+      responses:
+        '200':
+          description: Service export record. The provider definition declares no response schema.
+        '403':
+          description: >-
+            Returned by the gateway when no valid x-api-key is presented. Observed live on an
+            anonymous GET to https://dev1.api.biogen.com/serviceexp/np on 2026-09-04.
+  /packageexp/np:
+    get:
+      operationId: getPackageExportNonProd
+      summary: Export non-production API package
+      description: >-
+        Package_EXP_np — returns the non-production export record for a Biogen API package. The
+        Package_Name query parameter narrows the export to a named package; the provider definition
+        marks it optional with an empty default.
+      tags:
+        - Export
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - name: Package_Name
+          in: query
+          required: false
+          description: Name of Package
+          schema:
+            type: string
+            default: ''
+      responses:
+        '200':
+          description: Package export record. The provider definition declares no response schema.
+        '403':
+          description: >-
+            Returned by the gateway when no valid x-api-key is presented. Observed live on an
+            anonymous GET to https://dev1.api.biogen.com/serviceexp/np on 2026-09-04.
+components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: >-
+        API key issued through the Biogen developer portal. The provider definition declares
+        auth.key with param "x-api-key" and location "header".

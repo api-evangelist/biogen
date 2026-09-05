@@ -1,0 +1,50 @@
+{
+    "name": "CDP-Export-API/Package",
+    "title": "CDP-Export-API/Package",
+    "description": "",
+    "version": "1",
+    "protocol": "rest",
+    "basePath": "https://dev1.api.biogen.com",
+    "auth": {
+        "key": {
+            "param": "x-api-key",
+            "location": "header"
+        }
+    },
+    "resources": {
+        "Service_EXP_np": {
+            "methods": {
+                "Service_EXP_np": {
+                    "description": "",
+                    "httpMethod": "GET",
+                    "path": "/serviceexp/np",
+                    "parameters": {
+                        "Api_Name": {
+                            "description": "Name of API",
+                            "default": "",
+                            "required": false,
+                            "location": "query"
+                        }
+                    }
+                }
+            }
+        },
+        "Package_EXP_np": {
+            "methods": {
+                "Package_EXP_np": {
+                    "description": "",
+                    "httpMethod": "GET",
+                    "path": "/packageexp/np",
+                    "parameters": {
+                        "Package_Name": {
+                            "description": "Name of Package",
+                            "default": "",
+                            "required": false,
+                            "location": "query"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

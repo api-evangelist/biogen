@@ -1,0 +1,133 @@
+generated: '2026-09-04'
+method: probed
+source: >-
+  Live anonymous GET probes of the five named /.well-known/ paths on every host this record knows:
+  the registrable domain and www, the developer portal, the non-production developer portal, and
+  both API gateway hosts named by the provider's own API definition.
+note: >-
+  NO HIT. Every named /.well-known/ path missed on every Biogen host, so this file records an
+  absence and NO WellKnown or SecurityTxt pointer is wired into apis.yml. The 403s on
+  developer.biogen.com and developer1.biogen.com are the Mashery portal's blanket
+  "You don't have permission to read Home. Please Sign In or Register." page, not a served document;
+  the 596s on the gateway hosts are the Akamai/Mashery gateway refusing an unrouted path. Biogen does
+  publish an llms.txt (https://www.biogen.com/llms.txt, HTTP 200) — saved to llms/biogen-llms.txt —
+  but llms.txt is not a /.well-known/ document and is pointed at separately.
+hosts:
+  - host: www.biogen.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+        file: null
+      - path: /.well-known/openid-configuration
+        status: 404
+        file: null
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+        file: null
+      - path: /.well-known/api-catalog
+        status: 404
+        file: null
+      - path: /.well-known/ai-plugin.json
+        status: 404
+        file: null
+  - host: biogen.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 301
+        file: null
+      - path: /.well-known/openid-configuration
+        status: 301
+        file: null
+      - path: /.well-known/oauth-authorization-server
+        status: 301
+        file: null
+      - path: /.well-known/api-catalog
+        status: 301
+        file: null
+      - path: /.well-known/ai-plugin.json
+        status: 301
+        file: null
+  - host: developer.biogen.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 403
+        file: null
+      - path: /.well-known/openid-configuration
+        status: 403
+        file: null
+      - path: /.well-known/oauth-authorization-server
+        status: 403
+        file: null
+      - path: /.well-known/api-catalog
+        status: 403
+        file: null
+      - path: /.well-known/ai-plugin.json
+        status: 403
+        file: null
+  - host: developer1.biogen.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 403
+        file: null
+      - path: /.well-known/openid-configuration
+        status: 403
+        file: null
+      - path: /.well-known/oauth-authorization-server
+        status: 403
+        file: null
+      - path: /.well-known/api-catalog
+        status: 403
+        file: null
+      - path: /.well-known/ai-plugin.json
+        status: 403
+        file: null
+  - host: api.biogen.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 596
+        file: null
+      - path: /.well-known/openid-configuration
+        status: 596
+        file: null
+      - path: /.well-known/oauth-authorization-server
+        status: 596
+        file: null
+      - path: /.well-known/api-catalog
+        status: 596
+        file: null
+  - host: dev1.api.biogen.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 596
+        file: null
+      - path: /.well-known/openid-configuration
+        status: 596
+        file: null
+      - path: /.well-known/oauth-authorization-server
+        status: 596
+        file: null
+      - path: /.well-known/api-catalog
+        status: 596
+        file: null
+a2a_probe:
+  note: >-
+    /.well-known/agent-card.json and the legacy /.well-known/agent.json were probed on every host
+    above. No host returned a 200 carrying an AgentCard-shaped JSON object, so per the pipeline
+    contract NO a2a/ artifact and NO AgentCard pointer were written.
+  results:
+    - host: www.biogen.com
+      agent_card_json: 404
+      agent_json: 404
+    - host: developer.biogen.com
+      agent_card_json: 403
+      agent_json: 403
+    - host: developer1.biogen.com
+      agent_card_json: 403
+      agent_json: 403
+    - host: api.biogen.com
+      agent_card_json: 596
+      agent_json: 596
+    - host: dev1.api.biogen.com
+      agent_card_json: 596
+      agent_json: 596
+checked: '2026-09-04'

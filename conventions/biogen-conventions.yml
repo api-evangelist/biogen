@@ -1,0 +1,94 @@
+generated: '2026-09-04'
+method: derived
+source: >-
+  openapi/biogen-cdp-export-api-openapi.yml (derived from the provider's published definition at
+  https://developer1.biogen.com/swagger/export/23683), openapi/biogen-keys-api-openapi.yml,
+  openapi/biogen-services-api-openapi.yml, plus the Biogen developer portal pages
+  https://developer.biogen.com/io-docs and https://developer1.biogen.com/io-docs.
+summary: >-
+  Biogen runs a Mashery/Boomi API gateway estate: developer.biogen.com fronts api.biogen.com in
+  production, developer1.biogen.com fronts dev1.api.biogen.com in non-production. Every
+  cross-cutting convention below is REST-over-HTTPS with header API-key auth. Biogen publishes no
+  written conventions guide, no idempotency mechanism, no pagination contract and no rate-limit
+  header specification anywhere a machine can read, so most fields below are honest nulls rather
+  than assertions.
+auth:
+  style: api-key
+  parameter: x-api-key
+  location: header
+  transport: >-
+    HTTPS only. The portal documentation states the API "strictly uses HTTPS in the transport layer".
+  oauth2: >-
+    Not declared by any anonymously readable Biogen API definition. The Mashery io-docs page renders
+    an OAuth 2.0 flow selector for every portal, but the one readable Biogen definition declares
+    data-auth-type="key", so no OAuth2 claim is made here.
+  cross_ref: authentication/biogen-authentication.yml
+idempotency:
+  coverage: none
+  supported: false
+  header: null
+  scope: []
+  retention: null
+  evidence: >-
+    No Idempotency-Key (or equivalent) header appears in any Biogen API definition or portal page
+    that can be read anonymously. The one provider-published definition exposes two GET operations
+    and no mutating surface at all, so there is nothing to replay-protect on the readable contract.
+    Recorded as `none` rather than `na` because the estate as a whole (Worker Profile, Synapse Action
+    Centre — both documented as accepting POST, both behind the portal login) does have write
+    operations with no published replay protection.
+reversibility:
+  grade: na
+  reversal_operations: []
+  window: null
+  evidence: >-
+    The only Biogen API contract readable without credentials is read-only — two GET export lookups
+    (getServiceExportNonProd, getPackageExportNonProd). There is no write surface to reverse, so
+    reversibility is not applicable to the published contract. No cancel/refund/void/undo/restore
+    operation and no reversal window is documented anywhere on the anonymously readable portal, and
+    none has been asserted here.
+dry_run_mode:
+  supported: false
+  evidence: >-
+    Not published. The non-production environment (dev1.api.biogen.com) is the closest equivalent
+    Biogen offers — a separate host, not a dry-run flag on production.
+pagination:
+  style: null
+  parameters: []
+  response_fields: []
+  evidence: >-
+    No pagination contract is published. The two provider-declared operations take a single optional
+    name filter (Api_Name, Package_Name) and declare no response schema.
+field_expansion:
+  supported: false
+sparse_fieldsets:
+  supported: false
+metadata:
+  supported: false
+request_id_tracing:
+  header: null
+  evidence: No correlation or request-id header is documented on any anonymously readable surface.
+versioning:
+  style: portal-document
+  evidence: >-
+    Versioning is expressed in documentation paths rather than in the API path or a header — the
+    portal's own reference pages are addressed as
+    /docs/read/corporate_services_domain/synapse/synapse_action_centre/Version_01 and the CDP export
+    definition declares version "1". No URI version segment, Accept-header version, or version query
+    parameter appears in any published path.
+  cross_ref: lifecycle/biogen-lifecycle.yml
+error_envelope:
+  format: unpublished
+  rfc9457: false
+  evidence: >-
+    No error schema is declared in the provider-published definition. The portal reference pages
+    describe response codes in prose (200 OK, 401 Unauthorized) but sit behind the login, and the
+    gateway itself answers an anonymous request with a bare HTTP 403.
+  cross_ref: errors/biogen-problem-types.yml
+rate_limit_signaling:
+  headers: []
+  exhaustion_status: null
+  evidence: >-
+    No X-RateLimit-*, RateLimit-* or Retry-After header is documented. Mashery gateways commonly
+    enforce per-key quotas, but Biogen publishes no numbers and no header contract, so nothing is
+    asserted.
+  cross_ref: rate-limits/biogen-rate-limits.yml

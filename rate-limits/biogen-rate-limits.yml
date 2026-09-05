@@ -6,8 +6,18 @@ providerId: biogen
 created: '2026-05-04'
 # Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
 # bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
-method: generated
-modified: '2026-05-05'
+method: searched
+modified: '2026-09-04'
+limit_count: 0
+headers: []
+reconciliation: >-
+  Re-searched 2026-09-04 against the Biogen developer portal (https://developer.biogen.com/io-docs,
+  HTTP 200), the portal's own search index (https://developer.biogen.com/search, HTTP 200 — 4 indexed
+  documents, none describing limits), the non-production portal
+  (https://developer1.biogen.com/io-docs, HTTP 200) and the provider's published API definition
+  (https://developer1.biogen.com/swagger/export/23683, HTTP 200). NO published limit, window, burst or
+  rate-limit response header was found anywhere. limit_count is 0 because Biogen publishes no numbers;
+  the contractual entry below is a description of how limits are governed, not a published limit.
 reconciled: false
 tags:
   - Biotechnology
@@ -19,6 +29,9 @@ description: Biogen does not publish a public API rate-limit policy. Any throttl
   developer portal.
 sources:
   - https://www.biogen.com
+  - https://developer.biogen.com/io-docs
+  - https://developer1.biogen.com/io-docs
+  - https://developer1.biogen.com/swagger/export/23683
 notes: No public rate-limit documentation. Reconcile against the active partner agreement when one
   is in force.
 responseCodes:

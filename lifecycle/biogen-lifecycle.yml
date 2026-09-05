@@ -1,0 +1,52 @@
+generated: '2026-09-04'
+method: searched
+source: >-
+  https://developer.biogen.com/io-docs, https://developer.biogen.com/search (the portal's own search
+  index), https://developer1.biogen.com/io-docs, https://www.biogen.com/llms.txt, plus negative
+  probes of https://status.biogen.com (no DNS), https://biogen.statuspage.io (302 to
+  atlassian.com — no Biogen page) and https://trust.biogen.com (no DNS).
+versioning:
+  scheme: document-versioned
+  current: >-
+    The CDP-Export-API/Package definition declares version "1"; the portal's reference documents are
+    addressed as .../WorkerProfile and .../synapse_action_centre/Version_01. There is no URI version
+    segment or version header on any published path.
+  policy_url: null
+  note: No written versioning policy is published outside the portal login.
+deprecation:
+  policy_published: false
+  policy_url: null
+  sunset_header: false
+  deprecation_header: false
+  rfc8594: false
+  deprecated_operations: []
+  evidence: >-
+    No deprecation or sunset policy, and no RFC 8594 Sunset/Deprecation header contract, appears on
+    any anonymously readable Biogen surface. No operation in any spec in openapi/ carries
+    deprecated: true. NOTE — the CCS-CRX API this repo's earlier profile was built from
+    (https://developer.biogen.com/docs/read/global_markets/ccs_crx/Version_1) no longer appears in
+    the portal's own search index (a query for "crx" on https://developer.biogen.com/search returns
+    zero results, where "worker" and "synapse" return hits), which suggests a retirement Biogen never
+    announced publicly. Recorded as an observation, not as a declared deprecation.
+sla:
+  published: false
+  url: null
+status_page:
+  published: false
+  url: null
+  evidence: >-
+    status.biogen.com does not resolve; https://biogen.statuspage.io redirects (302) to
+    atlassian.com/software/statuspage, i.e. no Biogen status page exists there;
+    https://biogen.statuspage.io/api/v2/status.json redirects to statuspage.io. No StatusPage
+    pointer is wired into apis.yml, because Biogen serves no status page.
+changelog:
+  published: false
+  url: null
+  evidence: No dated API changelog or release-notes page is reachable without a portal account.
+environments:
+  - name: production
+    portal: https://developer.biogen.com/
+    gateway: https://api.biogen.com
+  - name: non-production
+    portal: https://developer1.biogen.com/
+    gateway: https://dev1.api.biogen.com

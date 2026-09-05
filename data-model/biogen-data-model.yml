@@ -1,0 +1,69 @@
+generated: '2026-09-04'
+method: derived
+source: >-
+  openapi/biogen-keys-api-openapi.yml, openapi/biogen-services-api-openapi.yml,
+  openapi/biogen-cdp-export-api-openapi.yml — derived from components.schemas $ref edges and
+  id-reference fields.
+note: >-
+  Only two of the three contracts declare schemas, and both of those (Keys, Services) are AE-authored
+  from Biogen's portal documentation rather than harvested from Biogen, so the entity graph below
+  describes the DEVELOPER PORTAL's own objects, not a Biogen product data model. The one
+  provider-published contract (CDP Export) declares no response schema at all, so it contributes no
+  entities. Biogen publishes no object reference and no id-prefix scheme.
+entities:
+  - name: ApiKey
+    description: A developer-portal API key, its status and its usage counters.
+    source: openapi/biogen-keys-api-openapi.yml
+    identifier: id
+    fields:
+      - id
+      - name
+      - key
+      - status
+      - created_at
+      - usage
+    relationships:
+      - type: has_one
+        target: ApiKeyUsage
+        via: usage
+        binding: '$ref'
+  - name: ApiKeyUsage
+    description: Request counters attached to a key (requests_today, requests_month).
+    source: openapi/biogen-keys-api-openapi.yml
+    identifier: null
+    fields:
+      - requests_today
+      - requests_month
+    relationships:
+      - type: belongs_to
+        target: ApiKey
+        via: usage
+  - name: ApiKeysResponse
+    description: Envelope returned by listApiKeys.
+    source: openapi/biogen-keys-api-openapi.yml
+    relationships:
+      - type: has_many
+        target: ApiKey
+        via: keys
+        binding: '$ref'
+  - name: CreateApiKeyRequest
+    description: Payload accepted by createApiKey.
+    source: openapi/biogen-keys-api-openapi.yml
+  - name: Service
+    description: A Biogen API service listed by the portal.
+    source: openapi/biogen-services-api-openapi.yml
+  - name: ServicesResponse
+    description: Envelope returned by listServices.
+    source: openapi/biogen-services-api-openapi.yml
+    relationships:
+      - type: has_many
+        target: Service
+        via: services
+        binding: '$ref'
+  - name: ErrorResponse
+    description: Proprietary error envelope {error, code}.
+    source: openapi/biogen-keys-api-openapi.yml
+id_prefixes:
+  published: false
+  note: No id-prefix or identifier scheme is documented on any anonymously readable Biogen surface.
+render: null

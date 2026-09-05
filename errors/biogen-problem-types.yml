@@ -1,0 +1,56 @@
+generated: '2026-09-04'
+method: derived
+source: >-
+  openapi/biogen-keys-api-openapi.yml, openapi/biogen-services-api-openapi.yml,
+  openapi/biogen-cdp-export-api-openapi.yml, plus a live anonymous probe of
+  https://dev1.api.biogen.com/serviceexp/np (HTTP 403, 2026-09-04).
+format: proprietary
+rfc9457: false
+envelope:
+  media_type: application/json
+  shape:
+    error: string — human-readable error message (example "unauthorized")
+    code: integer — the HTTP status code repeated in the body
+  source: >-
+    components.schemas.ErrorResponse in openapi/biogen-keys-api-openapi.yml and
+    openapi/biogen-services-api-openapi.yml. Those two documents are AE-authored from Biogen's
+    portal documentation (x-generated-from: documentation), so this envelope is a transcription of
+    what the portal documents, not a schema Biogen publishes as a file.
+note: >-
+  Biogen publishes no error-code registry. The provider's own machine-readable definition
+  (https://developer1.biogen.com/swagger/export/23683) declares no responses at all, and the portal's
+  written reference pages — which do describe response codes in prose — answer HTTP 403 to an
+  anonymous reader. Only the codes below have evidence; nothing has been extrapolated.
+problem_types:
+  - status: 401
+    title: Unauthorized
+    detail: >-
+      Request did not carry a valid API key. The portal reference describes 401 for requests that do
+      not contain valid credentials.
+    remediation: >-
+      Send the key issued by the Biogen developer portal in the x-api-key request header.
+    operations:
+      - listApiKeys
+      - listServices
+    evidence: openapi/biogen-keys-api-openapi.yml, openapi/biogen-services-api-openapi.yml
+  - status: 400
+    title: Bad Request
+    detail: Request body failed validation on key creation.
+    remediation: Correct the request payload and retry.
+    operations:
+      - createApiKey
+    evidence: openapi/biogen-keys-api-openapi.yml
+  - status: 403
+    title: Forbidden
+    detail: >-
+      Returned by the Biogen gateway to a request with no valid key. Observed live, not documented:
+      an anonymous GET to https://dev1.api.biogen.com/serviceexp/np returned 403 on 2026-09-04.
+    remediation: >-
+      Obtain a portal key for the package and resend it in the x-api-key header.
+    operations:
+      - getServiceExportNonProd
+      - getPackageExportNonProd
+    evidence: live probe https://dev1.api.biogen.com/serviceexp/np
+error_code_registry:
+  published: false
+  note: No numeric or symbolic error-code catalogue is published on any anonymously readable surface.

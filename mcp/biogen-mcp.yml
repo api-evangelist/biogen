@@ -1,0 +1,61 @@
+generated: '2026-09-04'
+method: derived
+status: candidate
+source: >-
+  Derived from openapi/biogen-cdp-export-api-openapi.yml, openapi/biogen-keys-api-openapi.yml and
+  openapi/biogen-services-api-openapi.yml after searching for a published Biogen MCP server and
+  finding none.
+note: >-
+  BIOGEN SHIPS NO MCP SERVER. No hosted endpoint, no npx/pip package, no listing in any MCP
+  directory, and nothing in the Biogen-Inc GitHub org. The tools below are a CANDIDATE mapping this
+  pipeline derived from Biogen's API operations to show what an MCP surface would look like — they
+  are not deployed and no endpoint URL has been invented. The apis.yml pointer is
+  X-MCPServerCandidate, never MCPServer, because MCPServer asserts the provider runs a server.
+deployment:
+  mode: none
+  endpoint: null
+  install: null
+  package: null
+  auth: api-key
+  verified: derived
+tools:
+  - name: get_service_export
+    description: Export the non-production record for a named Biogen API service.
+    rest: getServiceExportNonProd
+    method: GET
+    path: /serviceexp/np
+    inputSchema:
+      type: object
+      properties:
+        Api_Name:
+          type: string
+          description: Name of API
+      required: []
+  - name: get_package_export
+    description: Export the non-production record for a named Biogen API package.
+    rest: getPackageExportNonProd
+    method: GET
+    path: /packageexp/np
+    inputSchema:
+      type: object
+      properties:
+        Package_Name:
+          type: string
+          description: Name of Package
+      required: []
+  - name: list_api_keys
+    description: List the API keys on the authenticated Biogen developer-portal account.
+    rest: listApiKeys
+    method: GET
+    path: /api/keys
+    provenance: >-
+      Backing operation comes from openapi/biogen-keys-api-openapi.yml, which is AE-authored from
+      portal documentation (x-generated-from: documentation), not from a Biogen-published contract.
+  - name: list_services
+    description: List the Biogen API services available to the authenticated account.
+    rest: listServices
+    method: GET
+    path: /api/services
+    provenance: >-
+      Backing operation comes from openapi/biogen-services-api-openapi.yml, which is AE-authored from
+      portal documentation (x-generated-from: documentation), not from a Biogen-published contract.
