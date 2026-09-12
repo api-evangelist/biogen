@@ -1,0 +1,14 @@
+{
+  "repo": "biogen",
+  "feeds": [
+    {
+      "source": "https://www.biogen.com/company/contact-us.html",
+      "feed_url": "https://www.biogen.com/company/contact-us.html",
+      "title": "",
+      "saved": 0,
+      "method": "none"
+    }
+  ],
+  "post_count": 0,
+  "fetched": "2026-09-06T19:17:18Z"
+}

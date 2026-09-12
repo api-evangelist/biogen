@@ -1,28 +1,31 @@
-# Kin Score artifact — biogen — 2026-08-10T111628
+# Kin Score artifact — biogen — 2026-09-04T212454
 # The API Evangelist rating (https://github.com/api-evangelist/kin-score). Generated; do not edit.
 ---
 kin_score:
   slug: biogen
-  schema_version: 0.9.1
-  scored_at: '2026-08-10'
-  run_ts: 2026-08-10T111628
-  composite: 33.5
+  schema_version: 0.18.3
+  scored_at: '2026-09-04'
+  run_ts: 2026-09-04T212454
+  composite: 34.1
   band: thin
   facets:
     discoverability: 68.5
-    contract_quality: 22.9
-    governance: 68.8
-    operational_transparency: 26.3
-    developer_ergonomics: 28.3
+    contract_quality: 20.7
+    governance: 33.3
+    operational_transparency: 23.7
+    developer_ergonomics: 31.0
     commercial_clarity: 28.9
+    contract_governance: 33.3
+    access_clarity: 28.9
   agent_readiness:
-    score: 44.1
+    score: 30.6
     band: agent-ready
     dimensions:
       spec_presence: true
       agentic_access: derived
+      reversibility_documented: false
       mcp_server: false
-      auth_clarity: true
+      auth_clarity: bearer
       idempotency: false
       error_semantics: verified
       openapi_examples: verified
@@ -33,16 +36,23 @@ kin_score:
       consent_identity: false
       agent_card: false
       dry_run_mode: false
+      delegated_identity: false
+      protected_resource_metadata: false
+      dynamic_client_registration: false
+      agentic_commerce: false
   regulatory:
     applies: true
     regime: Health
     regime_id: health
-    score: 21.3
+    score: 38.8
     matched_via: tags
   provenance:
+    mcp: derived
+    skills: derived
     agentic_access: derived
+    conformance: derived
     contracts:
-      total: 2
-      derived: 2
+      total: 4
+      derived: 4
       coverage: 100.0
       callable: 100.0
