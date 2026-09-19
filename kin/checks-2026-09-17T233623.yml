@@ -2,15 +2,16 @@
 kin_checks:
   slug: biogen
   schema_version: 0.22.0
-  scored_at: '2026-09-15'
-  run_ts: 2026-09-15T230249
-  note: Actionable checks only (missed + partial). earned/na are every other check
-    in rubric/scoring-0.22.0.yml; counts below let you verify that.
+  scored_at: '2026-09-17'
+  run_ts: 2026-09-17T233623
+  note: Actionable checks (missed + partial) in `checks`, plus the ids that did not
+    apply in `na`. Everything else in rubric/scoring-0.22.0.yml was earned; counts
+    below let you verify that.
   counts:
     total: 136
     earned: 33
-    partial: 29
-    missed: 53
+    partial: 28
+    missed: 54
     na: 21
   checks:
   - id: multiple_apis
@@ -19,6 +20,9 @@ kin_checks:
     status: missed
   - id: apis_json_self_hosted
     status: missed
+  - id: openapi_3_1
+    status: missed
+    detail: 0 of 3 openapi documents pass
   - id: openapi_3_0
     status: missed
     detail: 0 of 3 openapi documents pass
@@ -126,12 +130,8 @@ kin_checks:
     earned: 5.0
   - id: openapi_3_2
     status: partial
-    earned: 0.83
-    detail: 2 of 3 openapi documents pass
-  - id: openapi_3_1
-    status: partial
-    earned: 0.42
-    detail: 1 of 3 openapi documents pass
+    earned: 1.25
+    detail: 3 of 3 openapi documents pass
   - id: info_complete
     status: partial
     earned: 1.0
@@ -229,3 +229,25 @@ kin_checks:
     status: partial
     earned: 1.25
     detail: 'authorship: derived'
+  na:
+  - asyncapi_3_x
+  - channels_defined
+  - contract_self_operated
+  - fhir_capability_statement
+  - fhir_resource_coverage
+  - graphql_descriptions
+  - graphql_sdl_present
+  - graphql_type_depth
+  - inbound_contract_published
+  - messages_with_schema
+  - os_code_of_conduct
+  - os_contribution_guide
+  - os_releases
+  - os_security_policy
+  - reg_camara_conformance
+  - reg_entitlement_terms
+  - reg_fapi_profile
+  - reg_pci_sca
+  - reg_write_surface
+  - security_schemes
+  - server_bindings
