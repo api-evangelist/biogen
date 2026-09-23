@@ -1,7 +1,9 @@
 ---
 title: Biogen Chooses Lexalytics® to Improve Customer Care ...
 url: https://www.lexalytics.com/news/biogen-chooses-lexalytics/
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"Biogen" press release artificial intelligence'
 position: 4
 source: serpapi-google

@@ -1,7 +1,9 @@
 ---
 title: FINANCIAL RESULTS AND BUSINESS UPDATE
 url: https://investors.biogen.com/static-files/0612f509-be22-438f-b817-3acba3917b0b
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"Biogen" press release artificial intelligence'
 position: 3
 source: serpapi-google

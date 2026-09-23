@@ -1,20 +1,26 @@
 {
   "provider": "biogen",
   "sources": [
-    "biogen-keys-api-openapi.yml",
-    "biogen-services-api-openapi.yml"
+    "_ae-authored/biogen-developer-api-openapi.yml",
+    "biogen-export-api-openapi.yml"
   ],
   "outputs": [
     "biogen-keys-api-openapi.yml",
-    "biogen-services-api-openapi.yml"
+    "biogen-services-api-openapi.yml",
+    "biogen-export-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
-  "warnings": [],
+  "warnings": [
+    "biogen-export-api-openapi.yml: previously refined output kept for 2 operation(s) no archived document covers (e.g. /packageexp/np get, /serviceexp/np get); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth."
+  ],
   "notes": [
-    "biogen-keys-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "biogen-services-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "sourced from openapi/_original/ (0 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "biogen-developer-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "biogen-keys-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "biogen-services-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

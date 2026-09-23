@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Biogen Developer Keys Services API
+  title: Biogen Developer Services API
   description: The Biogen Developer API provides programmatic access to Biogen services including the CCS-CRX API following REST standard specifications. The portal offers interactive I/O docs for testing, access key management, usage reporting, and documentation covering supported methods, HTTP headers, request/response formats, and response codes.
   version: v1
   contact:
@@ -54,19 +54,16 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    ErrorResponse:
-      title: Error Response
-      description: Standard error response.
+    ServicesResponse:
+      title: Services Response
+      description: List of available API services.
       type: object
       properties:
-        error:
-          type: string
-          description: Error message.
-          example: unauthorized
-        code:
-          type: integer
-          description: HTTP status code.
-          example: 401
+        services:
+          type: array
+          description: Array of available services.
+          items:
+            $ref: '#/components/schemas/Service'
     Service:
       title: Service
       description: An available Biogen API service.
@@ -92,16 +89,19 @@ components:
           - inactive
           - maintenance
           example: active
-    ServicesResponse:
-      title: Services Response
-      description: List of available API services.
+    ErrorResponse:
+      title: Error Response
+      description: Standard error response.
       type: object
       properties:
-        services:
-          type: array
-          description: Array of available services.
-          items:
-            $ref: '#/components/schemas/Service'
+        error:
+          type: string
+          description: Error message.
+          example: unauthorized
+        code:
+          type: integer
+          description: HTTP status code.
+          example: 401
   securitySchemes:
     apiKeyAuth:
       type: apiKey

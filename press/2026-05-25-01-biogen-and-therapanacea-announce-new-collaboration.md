@@ -1,7 +1,9 @@
 ---
 title: Biogen and TheraPanacea Announce New Collaboration ...
 url: https://investors.biogen.com/news-releases/news-release-details/biogen-and-therapanacea-announce-new-collaboration-potential
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"Biogen" press release artificial intelligence'
 position: 1
 source: serpapi-google
