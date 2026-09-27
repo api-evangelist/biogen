@@ -105,16 +105,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    ApiKeysResponse:
-      title: API Keys Response
-      description: List of API keys for the developer account.
-      type: object
-      properties:
-        keys:
-          type: array
-          description: Array of API keys.
-          items:
-            $ref: '#/components/schemas/ApiKey'
     CreateApiKeyRequest:
       title: Create API Key Request
       description: Request body for creating a new API key.
@@ -143,6 +133,29 @@ components:
           type: integer
           description: HTTP status code.
           example: 401
+    ApiKeyUsage:
+      title: API Key Usage
+      description: Usage statistics for an API key.
+      type: object
+      properties:
+        requests_today:
+          type: integer
+          description: Number of requests made today.
+          example: 150
+        requests_month:
+          type: integer
+          description: Number of requests made this month.
+          example: 4200
+    ApiKeysResponse:
+      title: API Keys Response
+      description: List of API keys for the developer account.
+      type: object
+      properties:
+        keys:
+          type: array
+          description: Array of API keys.
+          items:
+            $ref: '#/components/schemas/ApiKey'
     ApiKey:
       title: API Key
       description: A developer API key for accessing Biogen services.
@@ -175,19 +188,6 @@ components:
           example: '2024-01-01T00:00:00Z'
         usage:
           $ref: '#/components/schemas/ApiKeyUsage'
-    ApiKeyUsage:
-      title: API Key Usage
-      description: Usage statistics for an API key.
-      type: object
-      properties:
-        requests_today:
-          type: integer
-          description: Number of requests made today.
-          example: 150
-        requests_month:
-          type: integer
-          description: Number of requests made this month.
-          example: 4200
   securitySchemes:
     apiKeyAuth:
       type: apiKey

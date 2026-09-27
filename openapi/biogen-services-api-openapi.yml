@@ -54,16 +54,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    ServicesResponse:
-      title: Services Response
-      description: List of available API services.
-      type: object
-      properties:
-        services:
-          type: array
-          description: Array of available services.
-          items:
-            $ref: '#/components/schemas/Service'
     Service:
       title: Service
       description: An available Biogen API service.
@@ -89,6 +79,16 @@ components:
           - inactive
           - maintenance
           example: active
+    ServicesResponse:
+      title: Services Response
+      description: List of available API services.
+      type: object
+      properties:
+        services:
+          type: array
+          description: Array of available services.
+          items:
+            $ref: '#/components/schemas/Service'
     ErrorResponse:
       title: Error Response
       description: Standard error response.
