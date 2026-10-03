@@ -105,21 +105,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    CreateApiKeyRequest:
-      title: Create API Key Request
-      description: Request body for creating a new API key.
-      type: object
-      required:
-      - name
-      properties:
-        name:
-          type: string
-          description: Display name for the key.
-          example: Production Key
-        description:
-          type: string
-          description: Optional key description.
-          example: Key for production CCS-CRX integration
     ErrorResponse:
       title: Error Response
       description: Standard error response.
@@ -188,6 +173,21 @@ components:
           example: '2024-01-01T00:00:00Z'
         usage:
           $ref: '#/components/schemas/ApiKeyUsage'
+    CreateApiKeyRequest:
+      title: Create API Key Request
+      description: Request body for creating a new API key.
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          type: string
+          description: Display name for the key.
+          example: Production Key
+        description:
+          type: string
+          description: Optional key description.
+          example: Key for production CCS-CRX integration
   securitySchemes:
     apiKeyAuth:
       type: apiKey
