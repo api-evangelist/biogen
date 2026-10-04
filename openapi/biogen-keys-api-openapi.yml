@@ -105,19 +105,31 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    ErrorResponse:
-      title: Error Response
-      description: Standard error response.
+    CreateApiKeyRequest:
+      title: Create API Key Request
+      description: Request body for creating a new API key.
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          type: string
+          description: Display name for the key.
+          example: Production Key
+        description:
+          type: string
+          description: Optional key description.
+          example: Key for production CCS-CRX integration
+    ApiKeysResponse:
+      title: API Keys Response
+      description: List of API keys for the developer account.
       type: object
       properties:
-        error:
-          type: string
-          description: Error message.
-          example: unauthorized
-        code:
-          type: integer
-          description: HTTP status code.
-          example: 401
+        keys:
+          type: array
+          description: Array of API keys.
+          items:
+            $ref: '#/components/schemas/ApiKey'
     ApiKeyUsage:
       title: API Key Usage
       description: Usage statistics for an API key.
@@ -131,16 +143,6 @@ components:
           type: integer
           description: Number of requests made this month.
           example: 4200
-    ApiKeysResponse:
-      title: API Keys Response
-      description: List of API keys for the developer account.
-      type: object
-      properties:
-        keys:
-          type: array
-          description: Array of API keys.
-          items:
-            $ref: '#/components/schemas/ApiKey'
     ApiKey:
       title: API Key
       description: A developer API key for accessing Biogen services.
@@ -173,21 +175,19 @@ components:
           example: '2024-01-01T00:00:00Z'
         usage:
           $ref: '#/components/schemas/ApiKeyUsage'
-    CreateApiKeyRequest:
-      title: Create API Key Request
-      description: Request body for creating a new API key.
+    ErrorResponse:
+      title: Error Response
+      description: Standard error response.
       type: object
-      required:
-      - name
       properties:
-        name:
+        error:
           type: string
-          description: Display name for the key.
-          example: Production Key
-        description:
-          type: string
-          description: Optional key description.
-          example: Key for production CCS-CRX integration
+          description: Error message.
+          example: unauthorized
+        code:
+          type: integer
+          description: HTTP status code.
+          example: 401
   securitySchemes:
     apiKeyAuth:
       type: apiKey
