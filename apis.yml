@@ -90,6 +90,8 @@ maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
 common:
+  - type: FinOps
+    url: finops/biogen-finops.yml
   - type: Overlay
     url: overlays/biogen-cdp-export-api-overlay.yaml
   - type: AgentSkill
