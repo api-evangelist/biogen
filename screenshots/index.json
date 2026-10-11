@@ -1,0 +1,11 @@
+[
+  {
+    "repo": "biogen",
+    "captured_at": "2026-10-11T183209",
+    "source_url": "https://developer.biogen.com/",
+    "source_type": "Portal",
+    "file": "biogen-2026-10-11T183209.png",
+    "bytes": 30018,
+    "capture": "playwright-local"
+  }
+]
