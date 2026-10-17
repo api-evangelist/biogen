@@ -105,6 +105,19 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    ApiKeyUsage:
+      title: API Key Usage
+      description: Usage statistics for an API key.
+      type: object
+      properties:
+        requests_today:
+          type: integer
+          description: Number of requests made today.
+          example: 150
+        requests_month:
+          type: integer
+          description: Number of requests made this month.
+          example: 4200
     CreateApiKeyRequest:
       title: Create API Key Request
       description: Request body for creating a new API key.
@@ -120,29 +133,6 @@ components:
           type: string
           description: Optional key description.
           example: Key for production CCS-CRX integration
-    ApiKeysResponse:
-      title: API Keys Response
-      description: List of API keys for the developer account.
-      type: object
-      properties:
-        keys:
-          type: array
-          description: Array of API keys.
-          items:
-            $ref: '#/components/schemas/ApiKey'
-    ApiKeyUsage:
-      title: API Key Usage
-      description: Usage statistics for an API key.
-      type: object
-      properties:
-        requests_today:
-          type: integer
-          description: Number of requests made today.
-          example: 150
-        requests_month:
-          type: integer
-          description: Number of requests made this month.
-          example: 4200
     ApiKey:
       title: API Key
       description: A developer API key for accessing Biogen services.
@@ -188,6 +178,16 @@ components:
           type: integer
           description: HTTP status code.
           example: 401
+    ApiKeysResponse:
+      title: API Keys Response
+      description: List of API keys for the developer account.
+      type: object
+      properties:
+        keys:
+          type: array
+          description: Array of API keys.
+          items:
+            $ref: '#/components/schemas/ApiKey'
   securitySchemes:
     apiKeyAuth:
       type: apiKey

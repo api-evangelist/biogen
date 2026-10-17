@@ -54,16 +54,19 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    ServicesResponse:
-      title: Services Response
-      description: List of available API services.
+    ErrorResponse:
+      title: Error Response
+      description: Standard error response.
       type: object
       properties:
-        services:
-          type: array
-          description: Array of available services.
-          items:
-            $ref: '#/components/schemas/Service'
+        error:
+          type: string
+          description: Error message.
+          example: unauthorized
+        code:
+          type: integer
+          description: HTTP status code.
+          example: 401
     Service:
       title: Service
       description: An available Biogen API service.
@@ -89,19 +92,16 @@ components:
           - inactive
           - maintenance
           example: active
-    ErrorResponse:
-      title: Error Response
-      description: Standard error response.
+    ServicesResponse:
+      title: Services Response
+      description: List of available API services.
       type: object
       properties:
-        error:
-          type: string
-          description: Error message.
-          example: unauthorized
-        code:
-          type: integer
-          description: HTTP status code.
-          example: 401
+        services:
+          type: array
+          description: Array of available services.
+          items:
+            $ref: '#/components/schemas/Service'
   securitySchemes:
     apiKeyAuth:
       type: apiKey
