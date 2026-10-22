@@ -176,3 +176,41 @@
     detected: '2026-10-22'
   status: not-a-workflow
   arazzo: null
+- slug: biogen-ema-eu-centrally-authorised-medicines
+  label: EMA (EU centrally authorised medicines)
+  partner_name: EMA (EU centrally authorised medicines)
+  category: EU centrally authorised medicine
+  type: contract
+  channel: regulator-register
+  evidence: https://www.ema.europa.eu/en/medicines/human/EPAR/zinbryta
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: EMA medicines report (centrally authorised medicines; CHMP / CVMP opinion, EC decision)
+    standard: EU centralised marketing authorisation (Regulation (EC) 726/2004)
+    role: eu-marketing-authorisation-holder
+    categories:
+    - Human
+    statuses:
+    - Withdrawn
+    spec_file: null
+    registered_name: Biogen Idec Ltd
+    matched_domain: biogen.com
+    matched_by: domain
+    current_authorisation: false
+    signal_note: certified_products = one entry per product TYPE, never per product, only from products granted
+      an MA; lapsed when every granted product of the type is withdrawn / expired / revoked / lapsed. Advanced-therapy
+      rows are read by cell-gene-therapy and not repeated here. Products are context, never counted
+    detected_by: sweep-eu-ema-medicines.py
+    detected: '2026-10-22'
+    certified_products:
+    - product: human medicine (other) (EU centralised marketing authorisation)
+      product_type: human medicine (other)
+      standard: EU centralised marketing authorisation (Regulation (EC) 726/2004)
+      lapsed: true
+      products_sample:
+      - Zinbryta (daclizumab)
+    identity: wikidata Q864338 'Biogen' P856 https://www.biogen.com/
+    identity_source: wikidata P856 (labelled provenance step; Kin 2026-10-15 decision 1)
+  status: not-a-workflow
+  arazzo: null
