@@ -1,4 +1,4 @@
-# Biogen (biogen)
+# Biogen
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,64 +66,186 @@
 
 Biogen is a global biotechnology company that discovers, develops, and delivers therapies for people living with serious neurological diseases including multiple sclerosis, Alzheimer's, and spinal muscular atrophy.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/biogen/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/biogen/refs/heads/main/apis.yml)
+**Areas:** Biotechnology · Healthcare · Life Sciences · Pharmaceuticals · Neurology · Fortune 500
 
-## Scope
+## Biogen on APIs.io
 
-- **Position:** Consuming
-- **Access:** 3rd-Party
+Everything profiled for Biogen is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/biogen/](https://apis.io/providers/biogen/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (3)
 
-- Biotechnology
-- Healthcare
-- Life Sciences
-- Pharmaceuticals
-- Neurology
+- [Biogen Keys API](https://apis.io/apis/biogen/biogen-keys-api/) — API key management and usage
+- [Biogen Services API](https://apis.io/apis/biogen/biogen-services-api/) — Available Biogen API services
+- [Biogen Export API](https://apis.io/apis/biogen/biogen-export-api/) — Service and package export lookups across the Biogen non-production API estate
 
-## Timestamps
+### Published properties
 
-- **Created:** 2025-01-01
-- **Modified:** 2026-04-21
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### MCP servers (1)
 
-### Biogen Developer API
+Model Context Protocol servers that expose the API to agents.
 
-The Biogen Developer API provides programmatic access to Biogen services including the CCS-CRX API following REST standard specifications. The portal offers interactive I/O docs for testing API services, access key management, usage reporting, and detailed documentation covering supported methods, HTTP headers, request/response formats, and response codes.
+- [biogen-mcp.yml](https://apis.io/servers/biogen/biogen-mcp-yml/)
 
-- **Human URL:** [https://developer.biogen.com/](https://developer.biogen.com/)
-- **Base URL:** `https://developer.biogen.com`
+#### Agentic access (1)
 
-#### Tags
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- Biotechnology
-- Healthcare
-- Life Sciences
-- Pharmaceuticals
+- [Biogen Agentic Access](https://apis.io/agentic-access/biogen/biogen-agentic-access/)
 
-#### Properties
+#### JSON Schema (6)
 
-- [Portal](https://developer.biogen.com/)
-- [Documentation](https://developer.biogen.com/io-docs)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/biogen/refs/heads/main/openapi/biogen-developer-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/biogen-developer-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/biogen-developer-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+The data models the API reads and writes.
 
-## Common Properties
+- [ApiKey](https://apis.io/schemas/biogen/biogen-api-key/)
+- [ApiKeyUsage](https://apis.io/schemas/biogen/biogen-api-key-usage/)
+- [ApiKeysResponse](https://apis.io/schemas/biogen/biogen-api-keys-response/)
+- [CreateApiKeyRequest](https://apis.io/schemas/biogen/biogen-create-api-key-request/)
+- [Service](https://apis.io/schemas/biogen/biogen-service/)
+- [ServicesResponse](https://apis.io/schemas/biogen/biogen-services-response/)
 
-- [GitHub Organization](https://github.com/Biogen-Inc)
-- [LinkedIn](https://www.linkedin.com/company/biogen-)
-- [Portal](https://developer.biogen.com/)
+#### JSON Structure (6)
+
+Data models expressed in JSON Structure.
+
+- [Biogen Api Key Structure](https://apis.io/json-structure/biogen/biogen-api-key-structure/)
+- [Biogen Api Key Usage Structure](https://apis.io/json-structure/biogen/biogen-api-key-usage-structure/)
+- [Biogen Api Keys Response Structure](https://apis.io/json-structure/biogen/biogen-api-keys-response-structure/)
+- [Biogen Create Api Key Request Structure](https://apis.io/json-structure/biogen/biogen-create-api-key-request-structure/)
+- [Biogen Service Structure](https://apis.io/json-structure/biogen/biogen-service-structure/)
+- [Biogen Services Response Structure](https://apis.io/json-structure/biogen/biogen-services-response-structure/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Biogen Context](https://apis.io/jsonld/biogen/biogen-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Biogen Vocabulary](https://apis.io/vocabularies/biogen/biogen-vocabulary/)
+
+#### Examples (6)
+
+Example requests and responses.
+
+- [Biogen Api Key Example](https://apis.io/examples/biogen/biogen-api-key-example/)
+- [Biogen Api Key Usage Example](https://apis.io/examples/biogen/biogen-api-key-usage-example/)
+- [Biogen Api Keys Response Example](https://apis.io/examples/biogen/biogen-api-keys-response-example/)
+- [Biogen Create Api Key Request Example](https://apis.io/examples/biogen/biogen-create-api-key-request-example/)
+- [Biogen Service Example](https://apis.io/examples/biogen/biogen-service-example/)
+- [Biogen Services Response Example](https://apis.io/examples/biogen/biogen-services-response-example/)
+
+#### Collections (3)
+
+Postman and Open Collection request collections.
+
+- [Biogen Developer API](https://apis.io/collections/biogen/open-biogen-developer-api/)
+- [Biogen Developer Keys API](https://apis.io/collections/biogen/open-biogen-keys-api/)
+- [Biogen Developer Keys Services API](https://apis.io/collections/biogen/open-biogen-services-api/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Biogen Cdp Export Api Overlay](https://apis.io/overlays/biogen/biogen-cdp-export-api-overlay/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [Biogen — jsonschema rules](https://apis.io/rules/biogen/biogen-jsonschema-spectral-rules/)
+- [Biogen API Rules](https://apis.io/rules/biogen/biogen-spectral-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Biogen Authentication](https://apis.io/security/biogen/biogen-authentication/)
+- [Biogen Domain Security](https://apis.io/security/biogen/biogen-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Biogen Plans Pricing](https://apis.io/plans/biogen/biogen-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Biogen Rate Limits](https://apis.io/rate-limits/biogen/biogen-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Biogen Finops](https://apis.io/finops/biogen/biogen-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://www.biogen.com/)
 - [Documentation](https://developer.biogen.com/io-docs)
-- [Spectral Rules](https://raw.githubusercontent.com/api-evangelist/biogen/refs/heads/main/rules/biogen-spectral-rules.yml)
-- [Vocabulary](https://raw.githubusercontent.com/api-evangelist/biogen/refs/heads/main/vocabulary/biogen-vocabulary.yaml)
-- [Features](undefined)
-- [Use Cases](undefined)
-- [Integrations](undefined)
+- [Support](https://www.biogen.com/company/contact-us.html)
+- [Blog](https://www.biogen.com/stories.html)
+- [Terms of service](https://www.biogen.com/terms-and-conditions.html)
+- [Privacy policy](https://www.biogen.com/privacy-center.html)
+- [GitHub](https://github.com/Biogen-Inc)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 39.2** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 20.4 |
+| Contract governance | 31.8 |
+| Operational transparency | 23.7 |
+| Developer ergonomics | 47.0 |
+| Access clarity | 42.1 |
+
+**Agent readiness 31.5** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 30.5** — Health
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/biogen/](https://apis.io/providers/biogen/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Biogen: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/biogen/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
